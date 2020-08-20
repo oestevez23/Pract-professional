@@ -1,0 +1,47 @@
+CREATE TABLE rol(
+	rol_id SERIAL PRIMARY KEY,
+	nombre VARCHAR NOT NULL
+);
+
+CREATE TABLE tipo(
+	tipo_id SERIAL PRIMARY KEY,
+	nombre VARCHAR NOT NULL
+);
+
+CREATE TABLE carrera(
+	carrera_id SERIAL PRIMARY KEY,
+	nombre VARCHAR NOT NULL
+);
+
+CREATE TABLE skill(
+	skill_id SERIAL PRIMARY KEY,
+	nombre VARCHAR (200) NOT NULL,
+	tipo_id INTEGER NOT NULL,
+	FOREIGN KEY (tipo_id) REFERENCES tipo(tipo_id) ON DELETE CASCADE
+);
+CREATE TABLE usuario(
+	usuario_id SERIAL PRIMARY KEY,
+	nombre VARCHAR (200) NOT NULL,
+	nick VARCHAR (50) NOT NULL,
+	password VARCHAR (50) NOT NULL,
+	identificacion VARCHAR (20) NOT NULL,
+	correo VARCHAR (50),
+	rol_id INTEGER NOT NULL,
+	carrera_id INTEGER NOT NULL,
+	FOREIGN KEY (rol_id) REFERENCES rol(rol_id) ON DELETE CASCADE,
+	FOREIGN KEY (carrera_id) REFERENCES carrera(carrera_id) ON DELETE CASCADE
+);
+CREATE TABLE formulario(
+	formulario_id SERIAL PRIMARY KEY,
+	usuario_id INTEGER NOT NULL,
+	skill_id INTEGER NOT NULL,
+	FOREIGN KEY (usuario_id) REFERENCES usuario(usuario_id) ON DELETE CASCADE,
+	FOREIGN KEY (skill_id) REFERENCES skill(skill_id) ON DELETE CASCADE
+);
+CREATE TABLE filtro(
+	filtro_id SERIAL PRIMARY KEY,
+	carrera_id INTEGER NOT NULL,
+	skill_id INTEGER NOT NULL,
+	FOREIGN KEY (carrera_id) REFERENCES carrera(carrera_id) ON DELETE CASCADE,
+	FOREIGN KEY (skill_id) REFERENCES skill(skill_id) ON DELETE CASCADE
+);

@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "98594062-8fd9-4ddb-9860-6407b89487c9",
+		"name": "Practicas2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8003/usuario/login?nick=alejo&password=123456",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"usuario",
+						"login"
+					],
+					"query": [
+						{
+							"key": "nick",
+							"value": "alejo"
+						},
+						{
+							"key": "password",
+							"value": "123456"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistroUsuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"Maria Cristina Talero Cortes\",\n\t\"nick\":\"cristal\",\n\t\"password\":\"123\",\n\t\"identificacion\": \"96333221\",\n\t\"correo\":\"cristal@mail.com\",\n\t\"rol_id\":1,\n\t\"carrera_id\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8003/usuario/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"usuario",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "skillAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8003/skill?carrera_id=1&tipo_id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"skill"
+					],
+					"query": [
+						{
+							"key": "carrera_id",
+							"value": "1"
+						},
+						{
+							"key": "tipo_id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistroSkill",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"react\",\n\t\"tipo_id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8003/skill/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"skill",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistroCarrera",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nombre\":\"arquitectura\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8003/carrera/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"carrera",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ResgistroFiltro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"carrera_id\": 3,\r\n    \"skill_id\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8003/filtro/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"filtro",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistroFormulario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario_id\": 9,\r\n    \"skill_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8003/formulario/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"formulario",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busqueda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8003/busqueda?s1=1&s2=6&s3=7&s4=9",
+					"host": [
+						"localhost"
+					],
+					"port": "8003",
+					"path": [
+						"busqueda"
+					],
+					"query": [
+						{
+							"key": "s1",
+							"value": "1"
+						},
+						{
+							"key": "s2",
+							"value": "6"
+						},
+						{
+							"key": "s3",
+							"value": "7"
+						},
+						{
+							"key": "s4",
+							"value": "9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
